@@ -29,9 +29,8 @@ int first_part(void)
 char* timeToString(struct tm* t)
 {
     static char s[50];
-    sprintf(s, "%04d년 %02d월 %02d일 %02d시 %02d분 %02d초",
-        t->tm_year + 1900, t->tm_mon + 1, t->tm_mday,
-        t->tm_hour, t->tm_min, t->tm_sec);
+    sprintf(s,"%04d년 %02d월 %02d일 %02d시 %02d분 %02d초",
+        t->tm_year + 1900, t->tm_mon + 1, t->tm_mday,t->tm_hour, t->tm_min, t->tm_sec);
     return s;
 }
 
