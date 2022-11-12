@@ -1,8 +1,87 @@
-/*	1번째 파트
-S&P,KOSPI 지수를 먼저 띄워서 전일 지수와 비교 후 오늘의 주가 예상하기
+/*   1번째 파트
+KOSPI 지수를 먼저 띄워서 전일 지수와 비교 후 오늘의 주가 예상하기
 ex) KOSPI 지수가 전날에 비해 상승했다면 몇 % 상승했는지 보여주고 “오늘은 장분위기가 좋네요, 오늘은 시작부터 하락세이군요!” 등의 메세지 출력
+
+전날 마감 S&P 지수 띄워주고 오늘 어떨지 예상해주기(정안되면 이걸로 노선 변경)
 */
 
 #include "common.h"
 
+
+
+int first_part(void)
+{
+    //system("python stock_crawl_2.py");
+    //현재시간
+    char* timeToString(struct tm* t);
+    int KOSPI(void);
+
+    struct tm* t;
+    time_t timer;
+    timer = time(NULL);
+    t = localtime(&timer);
+    printf("%s\n", timeToString(t));
+    KOSPI();
+
+    return 0;
+}
+
+char* timeToString(struct tm* t)
+{
+    static char s[50];
+    sprintf(s, "%04d년 %02d월 %02d일 %02d시 %02d분 %02d초",
+        t->tm_year + 1900, t->tm_mon + 1, t->tm_mday,
+        t->tm_hour, t->tm_min, t->tm_sec);
+    return s;
+}
+
+
+int KOSPI(void)
+{
+    int a = 0, b = 0; // 코스피 지수 a는 전날 마감, b는 현재
+    int percent1 = 0, percent2 = 0; //몇퍼 상승 또는 하락값
+
+
+    int i, n = 0, year, month, day, yun, arr[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    printf("몇년 몇월 몇일인지 입력하세요: ");
+    scanf("%d %d %d", &year, &month, &day);
+    yun = year / 4;
+    n = year * 365 + yun;
+    for (i = 0; i < month - 1; i++)
+        n += arr[i];
+    n += day;
+    printf("\n");
+    if (n % 7 == 3)
+        printf("오늘은 월요일입니다.\n평일 3시 30분 이후면 마감값 기준으로 계산됩니다.");
+    else if (n % 7 == 4)
+        printf("오늘은 화요일입니다.\n평일 3시 30분 이후면 마감값 기준으로 계산됩니다.");
+    else if (n % 7 == 5)
+        printf("오늘은 수요일입니다.\n평일 3시 30분 이후면 마감값 기준으로 계산됩니다.");
+    else if (n % 7 == 6)
+        printf("오늘은 목요일입니다.\n평일 3시 30분 이후면 마감값 기준으로 계산됩니다.");
+    else if (n % 7 == 0)
+        printf("오늘은 금요일입니다.\n평일 3시 30분 이후면 마감값 기준으로 계산됩니다.");
+    else if (n % 7 == 1)
+        printf("오늘은 토요일입니다.\n오늘은 주식 시장이 안 열리는 날이므로 가장 최근인 금요일 마감값 기준으로 계산됩니다.");
+    else if (n % 7 == 2)
+        printf("오늘은 일요일입니다.\n오늘은 주식 시장이 안 열리는 날이므로 가장 최근인 금요일 마감값 기준으로 계산됩니다.");
+    printf("\n______________________________\n\n");
+
+
+    a = 4;
+    b = 8;
+    percent1 = 50;
+    percent2 = 0; //일단 아무 값이나 입력함 
+
+    if (a < b)
+    {
+        printf("전날보다 %d퍼센트 상승했네요!\n ", percent1);
+    }
+    else if (a > b)
+    {
+        printf("전날보다 %d퍼센트 하락했네요!\n", percent2);
+    }
+
+    return 0;
+}
 
