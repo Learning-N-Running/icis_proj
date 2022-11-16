@@ -43,9 +43,6 @@ int main(void)
             fifth_part();
         }
 
-        else if (isdigit(manual)) {
-            break;
-        }
         else
         {
             while (getchar() != '\n');
