@@ -4,9 +4,9 @@ from bs4 import BeautifulSoup
 import os
 
 if os.path.isfile('economic_ind.txt'): 
-        os.remove('economic_ind.txt') #today_stock.txt 라는 파일이 이미 있으면 지우기(새로운 주식 데이터베이스를 구축하기 위함.)
+        os.remove('economic_ind.txt') #economic_ind.txt 라는 파일이 이미 있으면 지우기(새로운 주식 데이터베이스를 구축하기 위함.)
 
-f = open('today_stock.txt','w',encoding="utf-8") 
+f = open('economic_ind.txt','w',encoding="utf-8") 
 
 def return_value(address,classnum):
     res = requests.get(address)
