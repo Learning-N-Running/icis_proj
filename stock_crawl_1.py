@@ -1,13 +1,14 @@
+# 네이버 코스피, 코스닥 전체 항목 출력하기(우리 나라 모든 주식 출력하기)
 # https://appia.tistory.com/733
 
 import requests
 from bs4 import BeautifulSoup
 import os
 
-if os.path.isfile('today_stock.txt'):
-        os.remove('today_stock.txt')
+if os.path.isfile('today_stock.txt'): 
+        os.remove('today_stock.txt') #today_stock.txt 라는 파일이 이미 있으면 지우기(새로운 주식 데이터베이스를 구축하기 위함.)
 
-f = open('today_stock.txt','w',encoding="utf-8")
+f = open('today_stock.txt','w',encoding="utf-8") 
 
 def return_value(address):
     res = requests.get(address)
@@ -18,10 +19,15 @@ def return_value(address):
     for item in items:
         basic_info = item.get_text()
         sinfo = basic_info.split("\n")
-        f.write("\t" + sinfo[1] + "\t\t" + sinfo[2] + "\t\t\t" + sinfo[3]+"\n")
+        f.write(sinfo[2] + "\t\t\t" + sinfo[3]+"\n")
 
-
+#코스닥
 baseaddress = 'https://finance.naver.com/sise/sise_market_sum.naver?&page='
+for i in range(1,35):
+    return_value(baseaddress+str(i))
+
+#코스피
+baseaddress = 'https://finance.naver.com/sise/sise_market_sum.naver?sosok=1&page='
 for i in range(1,35):
     return_value(baseaddress+str(i))
 
