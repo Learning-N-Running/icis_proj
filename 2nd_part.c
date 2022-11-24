@@ -8,8 +8,8 @@ ex) 주가 떨어지면 왜 떨어지는지 관련 기사들 헤드라인 제공해주기
 int second_part()
 {
 	printf("its second part");
+	system("python stock_crawl_1.py");
 	return 0;
 }
 //	system("python stock_crawl_1.py");
-//	fifth_part();
 //	return 0;
