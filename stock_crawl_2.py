@@ -21,15 +21,39 @@ now_kospi200 = now_item[3].string
 now_kosdaq = now_item[2].string
 
 change_item = return_value(basic_url,"num_s")
+
 change_kospi200 = change_item[2].text #\n이 앞,뒤에 붙어있음
-change_kospi200 = change_kospi200[1:]
+change_kospi200_num = change_kospi200[1:5]
+change_kospi200_up_do = change_kospi200[6:7]
+change_kospi200_per = change_kospi200[7:12]
+
 change_kosdaq = change_item[1].text
-change_kosdaq = change_kosdaq[1:]
+change_kosdaq_num = change_kosdaq[1:5]
+change_kosdaq_up_do = change_kosdaq[6:7]
+change_kosdaq_per = change_kosdaq[7:12]
 
 
-f.write("now_kospi200 "+now_kospi200+"\n")
-f.write("now_kosdaq " + now_kosdaq+"\n")
-f.write("change_kospi200 " + change_kospi200)
-f.write("change_kosdaq " + change_kosdaq)
+# f.write("now_kospi200 "+now_kospi200+"\n")
+# f.write("now_kosdaq " + now_kosdaq+"\n")
+# f.write("change_kospi200 " + change_kospi200)
+# f.write("change_kosdaq " + change_kosdaq)
+
+
+f.write("현재 코스피200은 "+now_kospi200+" 입니다."+"\n")
+f.write("현재 코스닥은 "+now_kosdaq+" 입니다."+"\n")
+
+f.write("코스피200은 "+change_kospi200_num)
+f.write("("+change_kospi200_up_do+change_kospi200_per+")")
+if change_kospi200_up_do=="+":
+    f.write("상승하였습니다.")
+elif change_kospi200_up_do=="-":
+    f.write("하락하였습니다.\n")
+
+f.write("코스닥은 "+change_kosdaq_num)
+f.write("("+change_kosdaq_up_do+change_kosdaq_per+")")
+if change_kosdaq_up_do=="+":
+    f.write("상승하였습니다.")
+elif change_kosdaq_up_do=="-":
+    f.write("하락하였습니다.")
 
 f.close()

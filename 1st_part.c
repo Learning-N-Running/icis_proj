@@ -7,11 +7,44 @@ ex) KOSPI 지수가 전날에 비해 상승했다면 몇 % 상승했는지 보여주고 “오늘은 장분위
 
 #include "common.h"
 
-
-
 int first_part(void)
 {
-    //system("python stock_crawl_2.py");
+    system("python stock_crawl_2.py"); //코스피, 코스닥 지수 업데이트.
+
+
+
+
+    FILE* p_file = NULL; //파일 포인터 선언
+    setlocale(LC_ALL, "ko-KR"); //언어 지역 코드를 'ko-KR'(한국어)로 설정
+
+    //UTF-8 형식으로 인코딩된 "economic_ind.txt" 파일을 읽기 모드로 연다. (성공하면 0을 반환)
+    if (0 == fopen_s(&p_file, "economic_ind.txt", "rt,ccs=UTF-8"))//"rt,ccs=UTF-8"
+    {
+        printf("\n");
+        for (int i = 0;i < 2;i++)
+        {
+            wchar_t str[64]; //한줄의 텍스트를 저장할 변수 //여기 있는 숫자를 a
+            //파일에서 한 줄의 텍스트를 읽는다. (최대 63자를 넘지 않게 읽는다.)
+            fgetws(str, 63, p_file); //여기에는 a-1을 넣어야 함.
+            wprintf(L"%s", str); //읽은 문자열을 화면에 출력한다.
+        }
+        printf("\n");
+        for (int i = 0;i < 2;i++)
+        {
+            wchar_t str[64]; //한줄의 텍스트를 저장할 변수 //여기 있는 숫자를 a
+            //파일에서 한 줄의 텍스트를 읽는다. (최대 63자를 넘지 않게 읽는다.)
+            fgetws(str, 63, p_file); //여기에는 a-1을 넣어야 함.
+            wprintf(L"%s", str); //읽은 문자열을 화면에 출력한다.
+        }
+
+
+        fclose(p_file); //열린 파일을 닫는다.
+    }
+
+
+
+    printf("\n");
+
     //현재시간
     char* timeToString(struct tm* t);
     int KOSPI(void);
@@ -29,8 +62,8 @@ int first_part(void)
 char* timeToString(struct tm* t)
 {
     static char s[50];
-    sprintf(s,"%04d년 %02d월 %02d일 %02d시 %02d분 %02d초",
-        t->tm_year + 1900, t->tm_mon + 1, t->tm_mday,t->tm_hour, t->tm_min, t->tm_sec);
+    sprintf(s, "%04d년 %02d월 %02d일 %02d시 %02d분 %02d초",
+        t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
     return s;
 }
 
@@ -66,21 +99,5 @@ int KOSPI(void)
         printf("오늘은 일요일입니다.\n오늘은 주식 시장이 안 열리는 날이므로 가장 최근인 금요일 마감값 기준으로 계산됩니다.");
     printf("\n______________________________\n\n");
 
-
-    a = 4;
-    b = 8;
-    percent1 = 50;
-    percent2 = 0; //일단 아무 값이나 입력함 
-
-    if (a < b)
-    {
-        printf("전날보다 %d퍼센트 상승했네요!\n ", percent1);
-    }
-    else if (a > b)
-    {
-        printf("전날보다 %d퍼센트 하락했네요!\n", percent2);
-    }
-
     return 0;
 }
-

@@ -145,6 +145,7 @@
     <ClCompile Include="3rd_part.c" />
     <ClCompile Include="4th_part.c" />
     <ClCompile Include="5th_part.c" />
+    <ClCompile Include="func_main.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
