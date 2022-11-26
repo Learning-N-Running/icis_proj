@@ -11,9 +11,6 @@ int first_part(void)
 {
     system("python stock_crawl_2.py"); //코스피, 코스닥 지수 업데이트.
 
-
-
-
     FILE* p_file = NULL; //파일 포인터 선언
     setlocale(LC_ALL, "ko-KR"); //언어 지역 코드를 'ko-KR'(한국어)로 설정
 
