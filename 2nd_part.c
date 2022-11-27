@@ -14,11 +14,15 @@ int second_part()
 	char go_to_menu = 0;
 	/*현재 국내 모든 주식의 주가 불러오기*/
 	printf("\n국내 주식 목록을 업데이트 중입니다.\n");
-	printf("시간이 조금 걸릴 수 있습니다.\n\n");
+	printf("시간이 조금 걸릴 수 있습니다.\n");
 	//여기에 주식 관련 명언 넣어도 좋을 듯
 	system("python stock_crawl_1.py"); 
+	printf("______________________________\n\n");
 	system("python search_stock.py");
 
+	printf("______________________________\n\n");
+
+	/**메뉴로 돌아가기**/
 	getchar();
 	printf("\nEnter를 누르시면 메뉴로 돌아갑니다.");
 	scanf("%c", &go_to_menu);
@@ -27,5 +31,3 @@ int second_part()
 		func_main();
 	return 0;
 }
-//	system("python stock_crawl_1.py");
-//	return 0;

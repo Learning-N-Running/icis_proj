@@ -1,13 +1,13 @@
 /*   3번째 파트
 주식계산기:  주식 구매가 입력, 현재 주가와 구매가 비교해주는 기능 (차익, 손익 등)
 */
+
 #include "common.h"
-#define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-char go_to_menu = 0;
 
 int third_part()
 {
+    char go_to_menu = 0;
+
     float buy = 0;//매수가격 변수 선언
     float sell = 0;//매도가격 변수 선언
     float commission = 0;//증권 수수료 변수 선언
@@ -24,10 +24,10 @@ int third_part()
     매도수수료 = sell * stockNo * commission*0.01 + sell * stockNo * 0.003;
 
     int yn;// 1번 또는 2번 입력받도록 변수 선언
-    char go_to_menu = 0;
 
+    printf("______________________________\n\n");
     ///매수 또는 매도 선택///
-    printf("매수를 원한다면 1을 입력, 매도를 원한다면 2를 입력해주세요 ");
+    printf("매수를 원한다면 1을 입력, 매도를 원한다면 2를 입력해주세요: ");
     do//1번이나 2번을 입력하지 않으면 다시 입력 받도록 함
     {
         scanf("%d", &yn);
@@ -35,7 +35,7 @@ int third_part()
         ////////매수를 원하는 경우////////
         if (yn == 1)
         {
-            printf("매수가격을 입력해주세요:\n");
+            printf("매수가격을 입력해주세요: ");
             scanf("%f", &buy);// 매수가격을 입력받음
             while (1)
             {
@@ -43,7 +43,7 @@ int third_part()
                 {
                     while (getchar() != '\n'); //문자를 입력한 경우, getchar()를 이용하여 개행 문자를 만날 때까지 입력 버퍼를 소모한다.
                     {
-                        printf("잘못된 값을 입력하셨습니다. \n매수가격을 다시 입력하세요:  ");
+                        printf("잘못된 값을 입력하셨습니다. \n매수가격을 다시 입력하세요: ");
                         scanf("%f", &buy);
                     }
                     continue;//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
@@ -52,7 +52,7 @@ int third_part()
                 break;
             }
 
-            printf("매수수량을 입력해주세요:\n");
+            printf("매수수량을 입력해주세요: ");
             scanf("%f", &stockNo);//매수수량을 입력받음
 
             while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
@@ -61,7 +61,7 @@ int third_part()
                 {
                     while (getchar() != '\n');
                     {
-                        printf("잘못된 값을 입력하셨습니다. \n매수수량을 다시 입력하세요:  ");
+                        printf("잘못된 값을 입력하셨습니다. \n매수수량을 다시 입력하세요: ");
                         scanf("%f", &stockNo);
                     }
                     continue;
@@ -71,7 +71,7 @@ int third_part()
             }
 
 
-            printf("증권수수료(퍼센트)를 입력해주세요:\n");
+            printf("증권수수료(퍼센트)를 입력해주세요: ");
             scanf("%f", &commission);//증권수수료를 입력받음
             while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
             {
@@ -79,7 +79,7 @@ int third_part()
                 {
                     while (getchar() != '\n');
                     {
-                        printf("잘못된 값을 입력하셨습니다. \n증권수수료(퍼센트)를 다시 입력하세요:  ");
+                        printf("잘못된 값을 입력하셨습니다. \n증권수수료(퍼센트)를 다시 입력하세요: ");
                         scanf("%f", &commission);
                     }
                     continue;
@@ -99,7 +99,7 @@ int third_part()
 
         ///매도를 원하는 경우///
         else if (yn == 2) {
-            printf("매수단가를 입력해주세요:\n");
+            printf("매수단가를 입력해주세요: ");
             scanf("%f", &buy);//매수단가 입력
 
             while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
@@ -108,7 +108,7 @@ int third_part()
                 {
                     while (getchar() != '\n');
                     {
-                        printf("잘못된 값을 입력하셨습니다. \n매수단가를 다시 입력하세요:  ");
+                        printf("잘못된 값을 입력하셨습니다. \n매수단가를 다시 입력하세요: ");
                         scanf("%f", &buy);
                     }
                     continue;
@@ -117,7 +117,7 @@ int third_part()
                 break;
             }
 
-            printf("매도단가를 입력해주세요:\n");
+            printf("매도단가를 입력해주세요: ");
             scanf("%f", &sell);//매도단가 입력
             while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
             {
@@ -125,7 +125,7 @@ int third_part()
                 {
                     while (getchar() != '\n');
                     {
-                        printf("잘못된 값을 입력하셨습니다. \n매도단가를 다시 입력하세요:  ");
+                        printf("잘못된 값을 입력하셨습니다. \n매도단가를 다시 입력하세요: ");
                         scanf("%f", &sell);
                     }
                     continue;
@@ -133,7 +133,7 @@ int third_part()
 
                 break;
             }
-            printf("매도수량을 입력해주세요:\n");
+            printf("매도수량을 입력해주세요: ");
             scanf("%f", &stockNo);//매도 수량 입력
             while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
             {
@@ -141,7 +141,7 @@ int third_part()
                 {
                     while (getchar() != '\n');
                     {
-                        printf("잘못된 값을 입력하셨습니다. \n매도수량을 다시 입력하세요:  ");
+                        printf("잘못된 값을 입력하셨습니다. \n매도수량을 다시 입력하세요: ");
                         scanf("%f", &stockNo);
                     }
                     continue;
@@ -149,7 +149,7 @@ int third_part()
 
                 break;
             }
-            printf("증권수수료(퍼센트)를 입력해주세요:\n");
+            printf("증권수수료(퍼센트)를 입력해주세요: ");
             scanf("%f", &commission);//증권 수수료 입력
 
             while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
@@ -158,7 +158,7 @@ int third_part()
                 {
                     while (getchar() != '\n');
                     {
-                        printf("잘못된 값을 입력하셨습니다. \n증권수수료(퍼센트)를 다시 입력하세요:  ");
+                        printf("잘못된 값을 입력하셨습니다. \n증권수수료(퍼센트)를 다시 입력하세요: ");
                         scanf("%f", &commission);
                     }
                     continue;

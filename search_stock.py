@@ -3,6 +3,7 @@ while True:
     check_to_contin_search=0 #계속 검색할 것인지 확인하는 변수
     back_to_search =0 #search_stock이 포함된 종목명이 여러개일 때 다시 입력하기를 요청하는 변수
     search_stock = input("국내 주식 중에서 주가를 알고 싶은 종목을 입력하세요.(ex.삼성전자): ")
+    search_stock = search_stock.upper() #거의 대부분의 종목은 영어가 포함되어있을 때, 그 영어가 모두 대문자이다. 따라서 입력한 문자를 대문자화한다.
     with open('today_stock.txt', "r", encoding="utf-8") as f:
         while True:
             line = f.readline()
@@ -55,7 +56,7 @@ while True:
         f.close()
     if back_to_search==1:
         continue
-    check_to_contin_search = input("계속해서 주가를 검색하시려면 Enter를 눌러주시고, 종료하시려면 1을 입력하세요.")
+    check_to_contin_search = input("\n계속해서 주가를 검색하시려면 Enter를 눌러주시고, 종료하시려면 1을 입력하세요.")
     try:
         if int(check_to_contin_search)==1:
             break

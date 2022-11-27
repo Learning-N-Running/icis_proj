@@ -10,8 +10,9 @@ int fourth_part();
 int fifth_part(void);
 int func_main(void);
 
-int KOSPI(void);
+
 char* timeToString(struct tm* t);
+
 
 
 
