@@ -52,8 +52,15 @@ elif change_kospi200_up_do=="-":
 f.write("코스닥은 "+change_kosdaq_num)
 f.write("("+change_kosdaq_up_do+change_kosdaq_per+")")
 if change_kosdaq_up_do=="+":
-    f.write("상승하였습니다.")
+    f.write("상승하였습니다.\n")
 elif change_kosdaq_up_do=="-":
-    f.write("하락하였습니다.")
+    f.write("하락하였습니다.\n")
+
+if change_kospi200_up_do=="+" and change_kospi200_up_do=="+":
+    f.write("오늘의 장 분위기는 좋습니다.")
+elif change_kospi200_up_do=="-" and change_kospi200_up_do=="-":
+    f.write("오늘의 장 분위기는 썩 좋지 않습니다.")
+else:
+    f.write("오늘의 장 분위기는 나쁘지 않습니다.")
 
 f.close()
