@@ -9,6 +9,7 @@ int first_part(void)
 {
     char go_to_menu = 0; // menu로 돌아갈 것인지 확인하는 변수
 
+
     printf("\n코스피, 코스닥 지수를 업데이트하는 중입니다. \n시간이 조금 걸릴 수 있습니다.\n");
 
     system("python stock_crawl_2.py"); //코스피, 코스닥 지수를 업데이트 해주는 py 파일 실행. 이때 실행 결과로 economic_ind.txt가 생기거나 업데이트된다.
@@ -23,7 +24,7 @@ int first_part(void)
     time_t timer;
     timer = time(NULL);
     t = localtime(&timer);
-    printf("%s\n", timeToString(t));
+    printf("%s\n", timeToString(t)); // 오늘 날짜, 현재 시각 출력
 
 
     /** economic_ind.txt 파일을 읽어 출력 **/
