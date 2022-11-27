@@ -94,7 +94,6 @@ int third_part()
 
             Buy = buy * stockNo;
             mesu = Buy + Buy * commission * 0.01;
-
             printf("\n\n매수에 필요한 금액은 %.1f 원 입니다.\n", mesu);
         }
 
@@ -178,7 +177,6 @@ int third_part()
             current1 = sell * stockNo * commission * 0.01;
             current2 = sell * stockNo * 0.003;
             buymoney = current - current1 - current2;
-
             printf("\n\n총 매도수익은 %.0f 원 입니다.\n", buymoney);
 
             Buy = buy * stockNo;
