@@ -17,29 +17,29 @@ int main(void)
         if (manual == 1) //입력 받은 값이 1일 때, 해당 기능 제공
         {
 
-            printf("현재 주식 시장 분위기 파악하기를 선택하셨네요.\n");
+            printf("\n현재 주식 시장 분위기 파악하기를 선택하셨네요.\n");
             first_part(); //해당 함수 호출
         }
         else if (manual == 2)
         {
-            printf("나의 주식 정보 조회를 선택하셨네요.\n");
+            printf("\n나의 주식 정보 조회를 선택하셨네요.\n");
             second_part(); //해당 함수 호출
         }
         else if (manual == 3)
         {
-            printf("차익 손익 계산기를 선택하셨네요.\n");
+            printf("\n차익 손익 계산기를 선택하셨네요.\n");
             third_part(); //해당 함수 호출
         }
 
         else if (manual == 4)
         {
-            printf("차세대 핀테크의 자체적 주식시장 분석 정보 받기를 선택하셨네요.\n");
+            printf("\n차세대 핀테크의 자체적 주식시장 분석 정보 받기를 선택하셨네요.\n");
             fourth_part(); //해당 함수 호출
         }
 
         else if (manual == 5)
         {
-            printf("나의 주식 성향 알아보기를 선택하셨네요.\n");
+            printf("\n나의 주식 성향 알아보기를 선택하셨네요.\n");
             fifth_part(); //해당 함수 호출
         }
 

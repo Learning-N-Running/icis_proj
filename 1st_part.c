@@ -11,7 +11,7 @@ int first_part(void)
 {
     system("python stock_crawl_2.py"); //코스피, 코스닥 지수 업데이트.
 
-    printf("\n");
+    printf("______________________________\n\n");
 
     //현재시간
     char* timeToString(struct tm* t);
@@ -55,14 +55,14 @@ int first_part(void)
 
         fclose(p_file); //열린 파일을 닫는다.
     }
-
+    printf("\n______________________________\n\n");
     return 0;
 }
 
 char* timeToString(struct tm* t)
 {
     static char s[50];
-    sprintf(s, "***%04d년 %02d월 %02d일 %02d시 %02d분 %02d초***",
+    sprintf(s, "\n\n***%04d년 %02d월 %02d일 %02d시 %02d분 %02d초***",
         t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec); //s라는 문자열에 "%04d년 %02d월 %02d일 %02d시 %02d분 %02d초" 저장
 
     if (t->tm_wday == 1)
@@ -133,7 +133,7 @@ char* timeToString(struct tm* t)
     {
         printf("오늘은 일요일입니다.\n오늘은 주식 시장이 안 열리는 날이므로 가장 최근인 금요일 마감값을 기준으로 계산됩니다.");
     }
-    printf("\n______________________________\n\n");
+    /*printf("\n______________________________\n\n");*/
     return s;
 }
 
