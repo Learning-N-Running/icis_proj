@@ -12,6 +12,7 @@ ex) 연초, 연말에 전반적인 주식 분위기 및 대체로 상승한 주식 분야와 하락한 분야 �
 int fourth_part(void)
 {
     int month = 0; //월 변수 초기화
+    char go_to_menu = 0;
 
     do
     {
@@ -76,5 +77,11 @@ int fourth_part(void)
       
     } while (month < 1 | month >12); //1~12사이의 수가 아닐 시 제대로 된 값을 받을 때 까지 반복
 
+    getchar();
+    printf("\nEnter를 누르시면 메뉴로 돌아갑니다.");
+    scanf("%c", &go_to_menu);
+    if (go_to_menu == '\n')
+        printf("메뉴로 돌아갑니다.\n\n\n");
+    func_main();
     return 0;
 }

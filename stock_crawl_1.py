@@ -19,7 +19,7 @@ def return_value(address):
     for item in items:
         basic_info = item.get_text()
         sinfo = basic_info.split("\n")
-        f.write(sinfo[2] + " " + sinfo[3]+"\n")
+        f.write(sinfo[2] + "_" + sinfo[3]+"\n")
 
 #코스닥
 baseaddress = 'https://finance.naver.com/sise/sise_market_sum.naver?&page='

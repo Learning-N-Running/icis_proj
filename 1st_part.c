@@ -7,8 +7,10 @@ ex) KOSPI 지수가 전날에 비해 상승했다면 몇 % 상승했는지 보여주고 “오늘은 장분위
 
 #include "common.h"
 
+
 int first_part(void)
 {
+    char go_to_menu = 0;
     system("python stock_crawl_2.py"); //코스피, 코스닥 지수 업데이트.
 
     printf("______________________________\n\n");
@@ -56,6 +58,13 @@ int first_part(void)
         fclose(p_file); //열린 파일을 닫는다.
     }
     printf("\n______________________________\n\n");
+
+    getchar();
+    printf("\nEnter를 누르시면 메뉴로 돌아갑니다.");
+    scanf("%c", &go_to_menu);
+    if (go_to_menu == '\n')
+        printf("메뉴로 돌아갑니다.\n\n\n");
+    func_main();
     return 0;
 }
 

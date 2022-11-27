@@ -11,13 +11,20 @@ char compare[200]; //사용자가 입력하는 종목과 기존의 종목을 비교하기 위한 문자열
 
 int second_part()
 {
+	char go_to_menu = 0;
 	/*현재 국내 모든 주식의 주가 불러오기*/
-	/*system("python stock_crawl_1.py"); */
+	printf("\n국내 주식 목록을 업데이트 중입니다.\n");
+	printf("시간이 조금 걸릴 수 있습니다.\n\n");
+	//여기에 주식 관련 명언 넣어도 좋을 듯
+	system("python stock_crawl_1.py"); 
 	system("python search_stock.py");
-	
-	printf("뚭");
 
-
+	getchar();
+	printf("\nEnter를 누르시면 메뉴로 돌아갑니다.");
+	scanf("%c", &go_to_menu);
+	if (go_to_menu == '\n')
+		printf("메뉴로 돌아갑니다.\n\n\n");
+		func_main();
 	return 0;
 }
 //	system("python stock_crawl_1.py");
