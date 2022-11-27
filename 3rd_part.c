@@ -174,7 +174,7 @@ int third_part()
             current2 = sell * stockNo * 0.003;
             float buymoney;
             buymoney = current - current1 - current2;//매도수익=(매도가격x매도수량)-(매도가격x매도수량x증권거래수수료)-매도가격x매도수량x증권거래세)
-            printf("총매도수익은 %.0f원 입니다\n", buymoney);
+            printf("\n총매도수익은 %.0f원 입니다\n", buymoney);
             float Buy;//매수가격x매수수량 변수 선언
             Buy = buy * stockNo;
             float realmoney;
@@ -185,10 +185,10 @@ int third_part()
             float rate;
             rate = realmoney / Buy * 100;//수익률= 손익금/(매수가격x매수수량)x100
             printf("수익률은 %.3f퍼센트 입니다\n", rate);
-            {//만약 수익률이 0보다 크면 good, 0이면 same, 작을 경우 bad 출력
-                if (realmoney > 0) { printf("good\n"); }
-                else if (realmoney == 0) { printf("same\n"); }
-                else { printf("bad"); }
+            {//만약 수익률이 0보다 크면 이익, 0이면 본전, 작을 경우 손실 출력
+                if (realmoney > 0) { printf("축하합니다! 매도 결과 이익입니다!\n"); }
+                else if (realmoney == 0) { printf("매도 결과 본전입니다!\n"); }
+                else { printf("매도 결과 손실이시군요!\n"); }
 
             }
 
