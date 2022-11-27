@@ -6,7 +6,7 @@
 
 int third_part()
 {
-    char go_to_menu = 0;
+    int yn; // 1 또는 2를 입력받아 매수 혹은 매도를 선택할 수 있게 하는 변수
 
     float buy = 0; // 매수가격 변수
     float sell = 0; // 매도가격 변수
@@ -22,7 +22,7 @@ int third_part()
     float realmoney; // 손익금 = {(매도가격x매도수량) - (매도가격x매도수량x증권거래수수료) - (매도가격x매도수량x증권거래세)} - (매수가격x매수수량) - {(매수가격x매수수량x 증권거래수수료)}
     float rate; // 수익률 = 손익금 / (매수가격x매수수량) x100
 
-    int yn;// 1번 또는 2번 입력받도록 변수 선언
+    char go_to_menu = 0; // menu로 돌아갈 것인지 확인하는 변수
 
 
     printf("______________________________\n\n");
@@ -30,7 +30,7 @@ int third_part()
     /** 매수 또는 매도 선택 **/
     printf("매수를 원한다면 1을 입력, 매도를 원한다면 2를 입력하세요: ");
 
-    do //1번이나 2번을 입력하지 않으면 다시 입력 받도록 함
+    while (1) //1번이나 2번을 입력하지 않으면 다시 입력 받도록 함
     {
         scanf("%d", &yn);
 
@@ -95,11 +95,12 @@ int third_part()
             Buy = buy * stockNo;
             mesu = Buy + Buy * commission * 0.01;
             printf("\n\n매수에 필요한 금액은 %.1f 원 입니다.\n", mesu);
+            break;
         }
 
 
         /// 매도를 원하는 경우 ///
-        else if (yn == 2) 
+        else if (yn == 2)
         {
             printf("\n************");
             printf(" 매도 ");
@@ -172,7 +173,7 @@ int third_part()
 
                 break;
             }
-            
+
             current = sell * stockNo;
             current1 = sell * stockNo * commission * 0.01;
             current2 = sell * stockNo * 0.003;
@@ -180,7 +181,7 @@ int third_part()
             printf("\n\n총 매도수익은 %.0f 원 입니다.\n", buymoney);
 
             Buy = buy * stockNo;
-            comm_buy = buy * stockNo * commission*0.01;
+            comm_buy = buy * stockNo * commission * 0.01;
             realmoney = buymoney - Buy - comm_buy;
             printf("손익금은 %.0f 원 입니다.\n", realmoney);
 
@@ -192,11 +193,20 @@ int third_part()
                 else if (realmoney == 0) { printf("\n매도 결과, 본전입니다!\n"); }
                 else { printf("\n아... 매도 결과, 손실이시군요.\n"); }
             }
+            break;
         }
 
-    } while (yn < 1 | yn >2);//1번이나 2번을 입력하지 않으면 다시 입력 받도록 함
+        /// 1또는 2를 입력하지 않았을 경우 ///
+        else 
+        {
+            printf("1 또는 2만 입력하실 수 있습니다.\n");
+            printf("매수를 원한다면 1을 입력, 매도를 원한다면 2를 입력하세요: ");
+        }
+    }
+
     printf("______________________________\n\n");
 
+    /**메뉴로 돌아가기**/
     printf("\nEnter를 누르시면 메뉴로 돌아갑니다.");
     scanf("%c", &go_to_menu);
     if (go_to_menu == '\n')

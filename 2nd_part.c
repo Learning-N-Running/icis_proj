@@ -4,14 +4,11 @@ ex) 주가 떨어지면 왜 떨어지는지 관련 기사들 헤드라인 제공해주기
 */
 
 #include "common.h"
-int stock_name_len = 0;
-
-char stock_name[200]; //사용자가 주가를 알고 싶은 종목. 즉, 사용자가 입력하는 종목
-char compare[200]; //사용자가 입력하는 종목과 기존의 종목을 비교하기 위한 문자열
 
 int second_part()
 {
-	char go_to_menu = 0;
+	char go_to_menu = 0; // menu로 돌아갈 것인지 확인하는 변수
+
 	/*현재 국내 모든 주식의 주가 불러오기*/
 	printf("\n국내 주식 목록을 업데이트 중입니다.\n");
 	printf("시간이 조금 걸릴 수 있습니다.\n");

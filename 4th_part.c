@@ -76,6 +76,7 @@ int fourth_part(void)
       
     } while (month < 1 | month >12); //1~12사이의 수가 아닐 시 제대로 된 값을 받을 때 까지 반복
 
+    /**메뉴로 돌아가기**/
     getchar();
     printf("\nEnter를 누르시면 메뉴로 돌아갑니다.");
     scanf("%c", &go_to_menu);
