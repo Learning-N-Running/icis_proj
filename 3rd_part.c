@@ -7,73 +7,185 @@
 
 int third_part()
 {
-    float buy = 0;
-    float sell = 0;
-    float tax = 0;
-    float stockNo = 0;
-
-
-
-    float current;
+    float buy = 0;//매수가격 변수 선언
+    float sell = 0;//매도가격 변수 선언
+    float commission = 0;//증권 수수료 변수 선언
+    float stockNo = 0;//수량 변수 선언
+    float current;//매도가격x매도수량 변수 선언
     current = sell * stockNo;
 
-    float Buy;
+    float Buy;//매수가격x매수수량 변수 선언
     Buy = buy * stockNo;
-    float 매수수수료;
-    매수수수료 = sell * stockNo * tax;
+    float 매수수수료;//매수수수료=매수가격x매수수량x 증권거래수수료 변수 선언
+    매수수수료 = buy * stockNo * commission;
 
-    float 매도수수료;
-    매도수수료 = sell * stockNo * tax + sell * stockNo * 0.003;
+    float 매도수수료;//매도수수료= 매도가격x 매도수량x 증권거래수수료 + 매도가격x 매도수량x증권거래세(0.003으로 설정) 변수 선언
+    매도수수료 = sell * stockNo * commission + sell * stockNo * 0.003;
 
-    int yn;
+    int yn;// 1번 또는 2번 입력받도록 변수 선언
+
+    ///매수 또는 매도 선택///
     printf("매수를 원한다면 1을 입력, 매도를 원한다면 2를 입력해주세요 ");
-    do
+    do//1번이나 2번을 입력하지 않으면 다시 입력 받도록 함
     {
         scanf("%d", &yn);
 
+        ////////매수를 원하는 경우////////
         if (yn == 1)
         {
+
+
             printf("매수가격을 입력해주세요:\n");
-            scanf("%f", &buy);
+            scanf("%f", &buy);// 매수가격을 입력받음
+            while (1)
+            {
+                if (getchar() != '\n')
+                {
+                    while (getchar() != '\n'); //문자를 입력한 경우, getchar()를 이용하여 개행 문자를 만날 때까지 입력 버퍼를 소모한다.
+                    {
+                        printf("잘못된 값을 입력하셨습니다. \n매수가격을 다시 입력하세요:  ");
+                        scanf("%f", &buy);
+                    }
+                    continue;//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+                }
+
+                break;
+            }
+
             printf("매수수량을 입력해주세요:\n");
-            scanf("%f", &stockNo);
+            scanf("%f", &stockNo);//매수수량을 입력받음
+
+            while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            {
+                if (getchar() != '\n')
+                {
+                    while (getchar() != '\n');
+                    {
+                        printf("잘못된 값을 입력하셨습니다. \n매수수량을 다시 입력하세요:  ");
+                        scanf("%f", &stockNo);
+                    }
+                    continue;
+                }
+
+                break;
+            }
+
+
             printf("증권수수료를 입력해주세요:\n");
-            scanf("%f", &tax);
-            float Buy;
+            scanf("%f", &commission);//증권수수료를 입력받음
+            while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            {
+                if (getchar() != '\n')
+                {
+                    while (getchar() != '\n');
+                    {
+                        printf("잘못된 값을 입력하셨습니다. \n증권수수료를 다시 입력하세요:  ");
+                        scanf("%f", &commission);
+                    }
+                    continue;
+                }
+
+                break;
+            }
+
+            float Buy;//매수가격x매수수량 변수 선언
             Buy = buy * stockNo;
-            float mesu;
-            mesu = Buy + Buy * tax;
-            printf("매수에 필요한 돈은 %.0f원 입니다\n", mesu);
+            float mesu;//매수에 필요한 돈은 매수가격x 매수수량 +(매수가격x 매수수량)x증권수수료
+            mesu = Buy + Buy * commission;
+            printf("매수에 필요한 돈은 %.1f원 입니다\n", mesu);
 
         }
 
+
+        ///매도를 원하는 경우///
         else if (yn == 2) {
             printf("매수단가를 입력해주세요:\n");
-            scanf("%f", &buy);
+            scanf("%f", &buy);//매수단가 입력
+
+            while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            {
+                if (getchar() != '\n')
+                {
+                    while (getchar() != '\n');
+                    {
+                        printf("잘못된 값을 입력하셨습니다. \n매수단가를 다시 입력하세요:  ");
+                        scanf("%f", &buy);
+                    }
+                    continue;
+                }
+
+                break;
+            }
+
             printf("매도단가를 입력해주세요:\n");
-            scanf("%f", &sell);
+            scanf("%f", &sell);//매도단가 입력
+            while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            {
+                if (getchar() != '\n')
+                {
+                    while (getchar() != '\n');
+                    {
+                        printf("잘못된 값을 입력하셨습니다. \n매도단가를 다시 입력하세요:  ");
+                        scanf("%f", &sell);
+                    }
+                    continue;
+                }
+
+                break;
+            }
             printf("매도수량을 입력해주세요:\n");
-            scanf("%f", &stockNo);
+            scanf("%f", &stockNo);//매도 수량 입력
+            while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            {
+                if (getchar() != '\n')
+                {
+                    while (getchar() != '\n');
+                    {
+                        printf("잘못된 값을 입력하셨습니다. \n매도수량을 다시 입력하세요:  ");
+                        scanf("%f", &stockNo);
+                    }
+                    continue;
+                }
+
+                break;
+            }
             printf("증권수수료를 입력해주세요:\n");
-            scanf("%f", &tax);
-            float current;
+            scanf("%f", &commission);//증권 수수료 입력
+
+            while (1)//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            {
+                if (getchar() != '\n')
+                {
+                    while (getchar() != '\n');
+                    {
+                        printf("잘못된 값을 입력하셨습니다. \n증권수수료를 다시 입력하세요:  ");
+                        scanf("%f", &commission);
+                    }
+                    continue;
+                }
+
+                break;
+            }
+            float current;//매도가격x매도수량 변수 선언
             current = sell * stockNo;
-            float current1;
-            current1 = sell * stockNo * tax;
-            float current2;
+            float current1;//매도가격x매도수량x증권거래수수료 변수 선언
+            current1 = sell * stockNo * commission;
+            float current2;//매도가격x매도수량x증권거래세 변수 선언
             current2 = sell * stockNo * 0.003;
             float buymoney;
-            buymoney = current - current1 - current2;
+            buymoney = current - current1 - current2;//매도수익=(매도가격x매도수량)-(매도가격x매도수량x증권거래수수료)-매도가격x매도수량x증권거래세)
             printf("총매도수익은 %.0f원 입니다\n", buymoney);
-            float Buy;
+            float Buy;//매수가격x매수수량 변수 선언
             Buy = buy * stockNo;
             float realmoney;
-            realmoney = buymoney - Buy - 매수수수료;
+            float 매수수수료;//매수수수료=매수가격x매수수량x 증권거래수수료 변수 선언
+            매수수수료 = buy * stockNo * commission;
+            realmoney = buymoney - Buy - 매수수수료;//손익금={(매도가격x매도수량)-(매도가격x매도수량x증권거래수수료)-(매도가격x매도수량x증권거래세)}-(매수가격x매수수량)-{(매수가격x매수수량x 증권거래수수료)}
             printf("손익금은 %.0f원 입니다\n", realmoney);
             float rate;
-            rate = realmoney / Buy * 100;
+            rate = realmoney / Buy * 100;//수익률= 손익금/(매수가격x매수수량)x100
             printf("수익률은 %.3f퍼센트 입니다\n", rate);
-            {
+            {//만약 수익률이 0보다 크면 good, 0이면 same, 작을 경우 bad 출력
                 if (realmoney > 0) { printf("good\n"); }
                 else if (realmoney == 0) { printf("same\n"); }
                 else { printf("bad"); }
@@ -82,6 +194,6 @@ int third_part()
 
         }
 
-    } while (yn < 1 | yn >2);
+    } while (yn < 1 | yn >2);//1번이나 2번을 입력하지 않으면 다시 입력 받도록 함
     return 0;
 }
