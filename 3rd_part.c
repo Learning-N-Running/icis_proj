@@ -8,17 +8,22 @@ int third_part()
 {
     char go_to_menu = 0;
 
-    float buy = 0; // 매수가격 변수 선언
-    float sell = 0; // 매도가격 변수 선언
-    float commission = 0; // 증권 수수료 변수 선언
-    float stockNo = 0; // 수량 변수 선언
-    float current; // (매도가격 x 매도수량) 변수 선언
-    float Buy; // (매수가격 x 매수수량) 변수 선언
-    float comm_buy; //매수수수료 // comm_buy = (매수가격 x 매수수량 x 증권거래수수료) 변수 선언
-    float mesu; // 매수에 필요한 돈 // (매수가격 x 매수수량  +  매수가격 x 매수수량 x 증권수수료) 변수 선언
-
+    float buy = 0; // 매수가격 변수
+    float sell = 0; // 매도가격 변수
+    float commission = 0; // 증권 수수료 변수
+    float stockNo = 0; // 수량 변수
+    float current = 0; // (매도가격 x 매도수량) 변수
+    float Buy = 0; // (매수가격 x 매수수량) 변수
+    float comm_buy = 0; //매수수수료 // comm_buy = (매수가격 x 매수수량 x 증권거래수수료) 변수
+    float mesu = 0; // 매수에 필요한 돈 // (매수가격 x 매수수량  +  매수가격 x 매수수량 x 증권수수료) 변수
+    float current1 = 0; // (매도가격 x 매도수량 x 증권거래수수료) 변수
+    float current2 = 0; // (매도가격 x 매도수량 x 증권거래세) 변수
+    float buymoney; // 매도수익 = (매도가격x매도수량) - (매도가격x매도수량x증권거래수수료) - (매도가격x매도수량x증권거래세)
+    float realmoney; // 손익금 = {(매도가격x매도수량) - (매도가격x매도수량x증권거래수수료) - (매도가격x매도수량x증권거래세)} - (매수가격x매수수량) - {(매수가격x매수수량x 증권거래수수료)}
+    float rate; // 수익률 = 손익금 / (매수가격x매수수량) x100
 
     int yn;// 1번 또는 2번 입력받도록 변수 선언
+
 
     printf("______________________________\n\n");
 
@@ -170,23 +175,19 @@ int third_part()
             }
             
             current = sell * stockNo;
-            float current1;//매도가격x매도수량x증권거래수수료 변수 선언
-            current1 = sell * stockNo * commission*0.01;
-            float current2;//매도가격x매도수량x증권거래세 변수 선언
+            current1 = sell * stockNo * commission * 0.01;
             current2 = sell * stockNo * 0.003;
-            float buymoney;
-            buymoney = current - current1 - current2;//매도수익=(매도가격x매도수량)-(매도가격x매도수량x증권거래수수료)-매도가격x매도수량x증권거래세)
+            buymoney = current - current1 - current2;
             printf("\n\n총 매도수익은 %.0f 원 입니다.\n", buymoney);
-            float Buy;//매수가격x매수수량 변수 선언
-            Buy = buy * stockNo;
-            float realmoney;
 
+            Buy = buy * stockNo;
             comm_buy = buy * stockNo * commission*0.01;
-            realmoney = buymoney - Buy - comm_buy;//손익금={(매도가격x매도수량)-(매도가격x매도수량x증권거래수수료)-(매도가격x매도수량x증권거래세)}-(매수가격x매수수량)-{(매수가격x매수수량x 증권거래수수료)}
+            realmoney = buymoney - Buy - comm_buy;
             printf("손익금은 %.0f 원 입니다.\n", realmoney);
-            float rate;
-            rate = realmoney / Buy * 100;//수익률= 손익금/(매수가격x매수수량)x100
+
+            rate = realmoney / Buy * 100;
             printf("수익률은 %.3f %% 입니다.\n", rate);
+
             {//만약 수익률이 0보다 크면 이익, 0이면 본전, 작을 경우 손실 출력
                 if (realmoney > 0) { printf("\n축하합니다! 매도 결과, 이익입니다!\n"); }
                 else if (realmoney == 0) { printf("\n매도 결과, 본전입니다!\n"); }
