@@ -175,7 +175,7 @@ int third_part()
 
             current = sell * stockNo;
             current1 = sell * stockNo * commission * 0.01;
-            current2 = sell * stockNo * 0.003;
+            current2 = sell * stockNo * 0.0023;
             buymoney = current - current1 - current2;
             printf("\n\n총 매도수익은 %.0f 원 입니다.\n", buymoney);
 

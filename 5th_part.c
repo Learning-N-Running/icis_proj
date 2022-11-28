@@ -24,6 +24,20 @@ int fifth_part(void)
     do {
         scanf_s("%d", &number1); //첫번 째 질문에 대한 답변 scanf
 
+        while (1) //문자를 입력했을 때 다시 숫자를 입력받게 하는 역할
+        {
+            if (getchar() != '\n')
+            {
+                while (getchar() != '\n'); //문자를 입력한 경우, getchar()를 이용하여 개행 문자를 만날 때까지 입력 버퍼를 소모한다.
+                {
+                    printf("1~5사이의 값을 입력해 주세요.\n");
+                    scanf_s("%d", &number1);
+                }
+                continue;//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            }
+            break;
+        }
+
         if (number1 <= 2) //if문으로 각 답변에 대해 각기 다른 점수 부여
         {
             score1 = 4; //첫번 째 질문에 대한 점수는 score1로 들어간다.
@@ -44,12 +58,8 @@ int fifth_part(void)
         }
 
 
-        else {
-            printf("1~5사이의 값을 입력해 주세요.\n"); //else문을 이용해 1~5의 값을 입력받지 않았을 경우 다시 입력하라는 메시지 출력
-        }
-
-
     } while (number1 < 1 | number1>5); //원하는 값(1~5)을 입력받을 때까지 반복하기 위한 do while문
+
 
     printf("\n질문2) 투자하고자 하는 자금의 투자 가능 기간은 얼마나 됩니까?\n");
     printf(" 1. 6개월 이내  2. 6개월 이상~1년 이내  3. 1년 이상~2년 이내  4. 2년 이상~3년 이내  5. 3년 이상\n"); //두번 째 질문과 보기 출력
@@ -57,6 +67,20 @@ int fifth_part(void)
     do
     {
         scanf_s("%d", &number2); //두번 째 질문에 대한 답변 scanf
+
+        while (1) //문자를 입력했을 때 다시 숫자를 입력받게 하는 역할
+        {
+            if (getchar() != '\n')
+            {
+                while (getchar() != '\n'); //문자를 입력한 경우, getchar()를 이용하여 개행 문자를 만날 때까지 입력 버퍼를 소모한다.
+                {
+                    printf("1~5사이의 값을 입력해 주세요.\n");
+                    scanf_s("%d", &number2);
+                }
+                continue;//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            }
+            break;
+        }
 
         if (number2 == 1) //if문으로 각 답변에 대해 각기 다른 점수 부여
         {
@@ -87,6 +111,7 @@ int fifth_part(void)
         }
     } while (number2 < 1 | number2 >5); //원하는 값(1~5)을 입력받을 때까지 반복하기 위한 do while문
 
+
     printf("\n질문3) 다음 중 투자경험과 가장 가까운 것은 어느 것입니까?\n");
     printf(" 1. 은행의 예적금 국채, 지방채, 보증채, MMF, CMA 등 \n");
     printf(" 2. 금융채, 신용도가 높은 회사채, 채권형 펀드, 원금보장형 ELS 등 \n");
@@ -96,6 +121,20 @@ int fifth_part(void)
     do
     {
         scanf_s("%d", &number3); //세번 째 질문에 대한 답변 scanf
+
+        while (1) //문자를 입력했을 때 다시 숫자를 입력받게 하는 역할
+        {
+            if (getchar() != '\n')
+            {
+                while (getchar() != '\n'); //문자를 입력한 경우, getchar()를 이용하여 개행 문자를 만날 때까지 입력 버퍼를 소모한다.
+                {
+                    printf("1~5사이의 값을 입력해 주세요.\n");
+                    scanf_s("%d", &number3);
+                }
+                continue;//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            }
+            break;
+        }
 
         if (number3 == 1) //if문으로 각 답변에 대해 각기 다른 점수 부여
         {
@@ -122,6 +161,7 @@ int fifth_part(void)
         }
     } while (number3 < 1 | number3>5); //원하는 값(1~5)을 입력받을 때까지 반복하기 위한 do while문
 
+
     printf("\n질문 4) 금융상품 투자에 대한 본인의 지식수준은 어느 정도라고 생각합니까?\n");
     printf(" 1. [매우 낮은 수준] 투자의사 결정을 스스로 내려본 경험이 없는 정도\n");
     printf(" 2. [낮은 수준] 주식과 채권의 차이를 구분할 수 있는 정도\n");
@@ -130,6 +170,20 @@ int fifth_part(void)
     do
     {
         scanf_s("%d", &number4); //네번 째 질문에 대한 답변 scanf
+
+        while (1) //문자를 입력했을 때 다시 숫자를 입력받게 하는 역할
+        {
+            if (getchar() != '\n')
+            {
+                while (getchar() != '\n'); //문자를 입력한 경우, getchar()를 이용하여 개행 문자를 만날 때까지 입력 버퍼를 소모한다.
+                {
+                    printf("1~4사이의 값을 입력해 주세요.\n");
+                    scanf_s("%d", &number4);
+                }
+                continue;//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            }
+            break;
+        }
 
         if (number4 == 1) //if문으로 각 답변에 대해 각기 다른 점수 부여
         {
@@ -152,11 +206,26 @@ int fifth_part(void)
         }
     } while (number4 < 1 | number4>4); //원하는 값(1~4)을 입력받을 때까지 반복하기 위한 do while문
 
+
     printf("\n질문5) 현재 투자하고자 하는 자금은 전체 금융자산(부동산 등 제외) 중 어느 정도의 비중을 차지합니까? \n");
     printf(" 1. 10%% 이내  2. 10%% 이상~ 20%% 이내  3. 20%% 이상~30%%이내  4. 30%% 이상~ 40%% 이내  5. 40%% 이상 \n"); //다섯번 째 질문과 보기 출력
     do
     {
         scanf_s("%d", &number5); //다섯번 째 질문에 대한 답변 scanf
+
+        while (1) //문자를 입력했을 때 다시 숫자를 입력받게 하는 역할
+        {
+            if (getchar() != '\n')
+            {
+                while (getchar() != '\n'); //문자를 입력한 경우, getchar()를 이용하여 개행 문자를 만날 때까지 입력 버퍼를 소모한다.
+                {
+                    printf("1~5사이의 값을 입력해 주세요.\n");
+                    scanf_s("%d", &number5);
+                }
+                continue;//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            }
+            break;
+        }
 
         if (number5 == 1) //if문으로 각 답변에 대해 각기 다른 점수 부여
         {
@@ -183,6 +252,7 @@ int fifth_part(void)
         }
     } while (number5 < 1 | number5>5); //원하는 값(1~5)을 입력받을 때까지 반복하기 위한 do while문
 
+
     printf("\n질문6) 다음 중 수입원을 가장 잘 나타내는 것은 어느 것입니까?\n");
     printf(" 1. 현재 일정한 수입이 발생하고 있으며, 향후 수준을 유지하거나 증가할 것으로 예상된다.\n");
     printf(" 2. 현재 일정한 수입이 발생하고 있으나, 향후 감소하거나 불안정 할 것으로 예상된다.\n");
@@ -190,6 +260,20 @@ int fifth_part(void)
     do
     {
         scanf_s("%d", &number6); //여섯번 째 질문에 대한 답변 scanf
+
+        while (1) //문자를 입력했을 때 다시 숫자를 입력받게 하는 역할
+        {
+            if (getchar() != '\n')
+            {
+                while (getchar() != '\n'); //문자를 입력한 경우, getchar()를 이용하여 개행 문자를 만날 때까지 입력 버퍼를 소모한다.
+                {
+                    printf("1~3사이의 값을 입력해 주세요.\n");
+                    scanf_s("%d", &number6);
+                }
+                continue;//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            }
+            break;
+        }
 
         if (number6 == 1) //if문으로 각 답변에 대해 각기 다른 점수 부여
         {
@@ -208,6 +292,7 @@ int fifth_part(void)
         }
     } while (number6 < 1 | number6>3); //원하는 값(1~3)을 입력받을 때까지 반복하기 위한 do while문
 
+
     printf("\n질문7) 만약 투자원금 손실이 발생할 경우 다음 중 감수할 수 있는 손실수준은 어느 것입니까?\n");
     printf(" 1. 무슨 일이 있어도 보존되어야 한다.\n");
     printf(" 2. 10%% 미만까지는 손실을 감수할 수 있을 것 같다.\n");
@@ -216,6 +301,20 @@ int fifth_part(void)
     do
     {
         scanf_s("%d", &number7); //일곱번 째 질문에 대한 답변 scanf
+
+        while (1) //문자를 입력했을 때 다시 숫자를 입력받게 하는 역할
+        {
+            if (getchar() != '\n')
+            {
+                while (getchar() != '\n'); //문자를 입력한 경우, getchar()를 이용하여 개행 문자를 만날 때까지 입력 버퍼를 소모한다.
+                {
+                    printf("1~4사이의 값을 입력해 주세요.\n");
+                    scanf_s("%d", &number7);
+                }
+                continue;//문자를 입력한 경우 다시 while문의 초기로 돌아가 코드가 실행된다.
+            }
+            break;
+        }
 
         if (number7 == 1) //if문으로 각 답변에 대해 각기 다른 점수 부여
         {
