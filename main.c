@@ -3,11 +3,12 @@
 //변수 선언부
 int manual; //5가지의 기능을 제공하기 위한 변수
 
-
 int main(void)
 {
     manual = 0; //함수 초기화
+    textcolor(11);
     printf("\n차세대 핀테크 어플 방문을 환영합니다! \n\n");
+    textcolor(15);
     printf(" 1. 현재 주식 시장 분위기 파악하기\n 2. 주가 검색\n 3. 매수/매도 계산기\n 4. 차세대 핀테크의 자체적 주식시장 분석 정보 받기\n 5. 나의 주식 성향 알아보기 \n\n");
     printf("방문 목적을 다음의 보기에 해당하는 숫자로 입력해주세요.\n");
 
@@ -53,4 +54,9 @@ int main(void)
     } while (manual < 1 | manual >5); //받은 값이 1~5사이의 숫자가 아닐시 제대로 받을 때 까지 반복
 
     return 0;
+}
+
+void textcolor(int color_number) //콘솔창 출력색상을 나타내는 함수
+{
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color_number);
 }

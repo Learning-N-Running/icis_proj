@@ -1,4 +1,4 @@
-/*	2번째 파트
+/* 2번째 파트
 주가 검색: 웹크롤러를 통해 네이버증권 접속 후 현재가 끌어와 보여주기
 ex) 주가 떨어지면 왜 떨어지는지 관련 기사들 헤드라인 제공해주기
 */
@@ -12,8 +12,11 @@ int second_part()
 	/*현재 국내 모든 주식의 주가 불러오기*/
 	printf("\n국내 주식 목록을 업데이트 중입니다.\n");
 	printf("시간이 조금 걸릴 수 있습니다.\n");
-	//여기에 주식 관련 명언 넣어도 좋을 듯
-	system("python stock_crawl_1.py"); 
+	textcolor(11);
+	printf("\n오늘의 주식 명언!\n끊임없이 도전한 사람이 결국 게임의 승자가 된다. \n");
+	textcolor(15);
+
+	system("python stock_crawl_1.py");
 	printf("______________________________\n\n");
 	system("python search_stock.py");
 
@@ -25,6 +28,6 @@ int second_part()
 	scanf("%c", &go_to_menu);
 	if (go_to_menu == '\n')
 		printf("메뉴로 돌아갑니다.\n\n\n");
-		func_main();
+	func_main();
 	return 0;
 }
