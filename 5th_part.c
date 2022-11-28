@@ -8,6 +8,7 @@
 
 int fifth_part(void)
 {
+    //변수 선언부
     int score1 = 0, score2 = 0, score3 = 0, score4 = 0, score5 = 0, score6 = 0, score7 = 0; //각 답변의 점수를 저장할 변수 선언, 초기화
     int number1 = 0, number2 = 0, number3 = 0, number4 = 0, number5 = 0, number6 = 0, number7 = 0; //각 질문의 답변을 저장할 변수 선언, 초기화
 
@@ -15,6 +16,7 @@ int fifth_part(void)
     float score_final2 = 0; //socre_final에 추가 계산한 값을 저장할 변수 선언, 초기화
     
     char go_to_menu = 0; // menu로 돌아갈 것인지 확인하는 변수
+
 
     printf("______________________________\n");
 

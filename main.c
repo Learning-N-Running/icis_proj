@@ -1,11 +1,14 @@
-#include "common.h"
+/*
+    main 파일: 최초 메뉴
+*/
 
-//변수 선언부
-int manual; //5가지의 기능을 제공하기 위한 변수
+#include "common.h"
 
 int main(void)
 {
-    manual = 0; //함수 초기화
+    //변수 선언부
+    int manual = 0; //5가지의 기능을 제공하기 위한 변수 //함수 초기화
+
     textcolor(11);
     printf("\n차세대 핀테크 어플 방문을 환영합니다! \n\n");
     textcolor(15);
