@@ -22,15 +22,21 @@ now_kosdaq = now_item[2].string
 
 change_item = return_value(basic_url,"num_s")
 
-change_kospi200 = change_item[2].text #\n이 앞,뒤에 붙어있음
-change_kospi200_num = change_kospi200[1:5]
-change_kospi200_up_do = change_kospi200[6:7]
-change_kospi200_per = change_kospi200[7:12]
+change_kospi200 = str(change_item[2].text) #\n이 앞,뒤에 붙어있음
+change_kospi200 = change_kospi200.replace("\n","")
+change_kospi200 = change_kospi200[:-2]
+change_kospi200 = change_kospi200.split()
+change_kospi200_num = change_kospi200[0]
+change_kospi200_up_do = change_kospi200[1][0]
+change_kospi200_per = change_kospi200[1]
 
-change_kosdaq = change_item[1].text
-change_kosdaq_num = change_kosdaq[1:5]
-change_kosdaq_up_do = change_kosdaq[6:7]
-change_kosdaq_per = change_kosdaq[7:12]
+change_kosdaq = str(change_item[1].text)
+change_kosdaq = change_kosdaq.replace("\n","")
+change_kosdaq = change_kosdaq[:-2]
+change_kosdaq = change_kosdaq.split()
+change_kosdaq_num = change_kosdaq[0]
+change_kosdaq_up_do = change_kosdaq[1][0]
+change_kosdaq_per = change_kosdaq[1]
 
 
 # f.write("now_kospi200 "+now_kospi200+"\n")
@@ -42,19 +48,19 @@ change_kosdaq_per = change_kosdaq[7:12]
 f.write("현재 코스피200은 "+now_kospi200+" 입니다."+"\n")
 f.write("현재 코스닥은 "+now_kosdaq+" 입니다."+"\n")
 
-f.write("코스피200은 "+change_kospi200_num)
-f.write("("+change_kospi200_up_do+change_kospi200_per+")")
+f.write("코스피200은 "+change_kospi200_up_do+ change_kospi200_num)
+f.write("("+change_kospi200_per+")")
 if change_kospi200_up_do=="+":
-    f.write("상승하였습니다.")
+    f.write(" 상승하였습니다.")
 elif change_kospi200_up_do=="-":
-    f.write("하락하였습니다.\n")
+    f.write(" 하락하였습니다.\n")
 
-f.write("코스닥은 "+change_kosdaq_num)
-f.write("("+change_kosdaq_up_do+change_kosdaq_per+")")
+f.write("코스닥은 "+change_kosdaq_up_do + change_kosdaq_num)
+f.write("("+ change_kosdaq_per+")")
 if change_kosdaq_up_do=="+":
-    f.write("상승하였습니다.\n")
-elif change_kosdaq_up_do=="-":
-    f.write("하락하였습니다.\n")
+    f.write(" 상승하였습니다.\n")
+elif change_kosdaq_up_do=="-" or change_kosdaq_up_do==" -" or change_kosdaq_up_do=="- ":
+    f.write(" 하락하였습니다.\n")
 
 if change_kospi200_up_do=="+" and change_kospi200_up_do=="+":
     f.write("오늘의 장 분위기는 좋습니다.")
