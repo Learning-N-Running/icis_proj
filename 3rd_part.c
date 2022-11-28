@@ -188,8 +188,8 @@ int third_part()
             printf("수익률은 %.3f %% 입니다.\n", rate);
 
             {//만약 수익률이 0보다 크면 이익, 0이면 본전, 작을 경우 손실 출력
-                if (realmoney > 0) { printf("\n축하합니다! 매도 결과, 이익입니다!\n"); }
-                else if (realmoney == 0) { printf("\n매도 결과, 본전입니다!\n"); }
+                if (rate > 0) { printf("\n축하합니다! 매도 결과, 이익입니다!\n"); }
+                else if (rate == 0) { printf("\n매도 결과, 본전입니다!\n"); }
                 else { printf("\n아... 매도 결과, 손실이시군요.\n"); }
             }
             break;
