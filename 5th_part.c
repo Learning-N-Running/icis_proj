@@ -57,7 +57,6 @@ int fifth_part(void)
             score1 = 1;
         }
 
-
     } while (number1 < 1 | number1>5); //원하는 값(1~5)을 입력받을 때까지 반복하기 위한 do while문
 
 

@@ -2,6 +2,9 @@ while True:
     check_find =0 #검색하려는 종목을 주가 데이터베이스에서 찾았는지 확인하는 변수
     check_to_contin_search=0 #계속 검색할 것인지 확인하는 변수
     back_to_search =0 #search_stock이 포함된 종목명이 여러개일 때 다시 입력하기를 요청하는 변수
+    coincide = ""
+    are_you_finding = ''
+
     search_stock = input("국내 주식 중에서 주가를 알고 싶은 종목을 입력하세요.(ex.삼성전자): ")
     search_stock = search_stock.upper() #거의 대부분의 종목은 영어가 포함되어있을 때, 그 영어가 모두 대문자이다. 따라서 입력한 문자를 대문자화한다.
     with open('today_stock.txt', "r", encoding="utf-8") as f:
@@ -23,10 +26,14 @@ while True:
                             break
                         else:
                             same_list = []
-                            for j in range(len(line)): #데이터베이스에서 해당 종목의 주가 찾기
+                            for j in range(len(line)):
                                 if line[j]=="_":
                                     real_name = line[:j]
+                                    if real_name == search_stock:
+                                        coincide = line[j+1:]
+                                        coincide= coincide.replace("\n","")
                                     break
+                                
                             same_list.append(real_name)
                             while True:
                                 line = f.readline()
@@ -38,6 +45,9 @@ while True:
                                             for j in range(len(line)): #데이터베이스에서 해당 종목의 주가 찾기
                                                 if line[j]=="_":
                                                     real_name = line[:j]
+                                                    if real_name == search_stock:
+                                                        coincide = line[j+1:]
+                                                        coincide= coincide.replace("\n","")
                                                     break
                                             same_list.append(real_name)
                                             break
@@ -46,11 +56,27 @@ while True:
                                 print("[{}], ".format(same_list[l]),end='')
                             print("[{}]".format(same_list[len(same_list)-1]),end='')
                             print("입니다.")
-                            print("정확한 종목명으로 다시 입력해주세요.")
-                            print("")
-                            check_find=1
-                            back_to_search =1
-                            break
+
+                            if coincide !="":
+                                print("\n혹시 [{}]라는 종목을 찾으시나요?".format(search_stock))
+                                are_you_finding= input("맞다면 1, 아니라면 0을 입력하세요: ")
+                                if are_you_finding=='1':
+                                    print("검색하신 [{}]의 주가는 {}원입니다.".format(search_stock, coincide))
+                                    check_find=1
+                                    break
+                                else:
+                                    print("정확한 종목명으로 다시 입력해주세요.")
+                                    print("")
+                                    check_find=1
+                                    back_to_search =1
+                                    break
+                            else:
+                                print("정확한 종목명으로 다시 입력해주세요.")
+                                print("")
+                                check_find=1
+                                back_to_search =1
+                                break
+       
             if check_find==1:
                 break     
         f.close()
