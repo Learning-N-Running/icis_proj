@@ -38,13 +38,6 @@ change_kosdaq_num = change_kosdaq[0]
 change_kosdaq_up_do = change_kosdaq[1][0]
 change_kosdaq_per = change_kosdaq[1]
 
-
-# f.write("now_kospi200 "+now_kospi200+"\n")
-# f.write("now_kosdaq " + now_kosdaq+"\n")
-# f.write("change_kospi200 " + change_kospi200)
-# f.write("change_kosdaq " + change_kosdaq)
-
-
 f.write("현재 코스피200은 "+now_kospi200+" 입니다."+"\n")
 f.write("현재 코스닥은 "+now_kosdaq+" 입니다."+"\n")
 
