@@ -1,3 +1,7 @@
+/*
+    main 파일: 최초 메뉴
+*/
+
 #include "common.h"
 
 int main(void)
