@@ -21,12 +21,12 @@ def return_value(address):
         sinfo = basic_info.split("\n")
         f.write(sinfo[2] + "_" + sinfo[3]+"\n") #_는 종목과 주가 사이를 분리하는 문자
 
-#코스닥
+#코스피
 baseaddress = 'https://finance.naver.com/sise/sise_market_sum.naver?&page='
 for i in range(1,35):
     return_value(baseaddress+str(i))
 
-#코스피
+#코스닥
 baseaddress = 'https://finance.naver.com/sise/sise_market_sum.naver?sosok=1&page='
 for i in range(1,35):
     return_value(baseaddress+str(i))

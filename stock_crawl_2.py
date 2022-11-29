@@ -44,7 +44,7 @@ f.write("현재 코스닥은 "+now_kosdaq+" 입니다."+"\n")
 f.write("코스피200은 "+change_kospi200_up_do+ change_kospi200_num)
 f.write("("+change_kospi200_per+")")
 if change_kospi200_up_do=="+":
-    f.write(" 상승하였습니다.")
+    f.write(" 상승하였습니다.\n")
 elif change_kospi200_up_do=="-":
     f.write(" 하락하였습니다.\n")
 
