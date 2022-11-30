@@ -5,7 +5,6 @@ while True: #계속해서 주가를 검색할 수 있게 하기 위해 설정한
     coincide = "" #search_stock이 포함된 종목명이 여러개이지만 그 중에서 search_stock과 동일한 이름의 종목이 있을 경우 그 주가를 저장하는 변수
     are_you_finding = '' #search_stock이 포함된 종목명이 여러개이지만 그 중에서 search_stock과 동일한 이름의 종목이 있을 경우 그것을 찾는 것이 맞냐 물어보는 변수
     #ex) lg를 검색한 경우, lg화학, lg에너지솔루션등을 검색하려고 하는 것이냐 하는 메시지가 뜸. 근데 lg라는 종목도 있기 때문에 lg라는 이름의 종목의 주가를 찾아주기 위한 기능
-
     search_stock = input("국내 주식 중에서 주가를 알고 싶은 종목을 입력하세요.(ex.삼성전자): ") #search_stock :찾기 위해 입력된 문자열
     search_stock = search_stock.upper() #거의 대부분의 종목은 영어가 포함된 경우, 그 영어가 모두 대문자이다. 따라서 입력한 문자를 대문자화한다.
 
@@ -35,9 +34,9 @@ while True: #계속해서 주가를 검색할 수 있게 하기 위해 설정한
                                     if real_name == search_stock: #입력된 값이 포함된 종목이 입력된 값과 일치할 때. ex)LG 입력했는데 LG라는 이름의 종목도 존재.
                                         coincide = line[j+1:]
                                         coincide= coincide.replace("\n","") #coincide에 입력된 값의 주가 저장.
+                                    same_list.append(real_name) #same_list에 real_name 추가
                                     break
-                                same_list.append(real_name) #same_list에 real_name 추가
-
+                                
                             while True: #계속해서 same_list에 real_name 추가
                                 line = f.readline()
                                 if line =="": #today_stock.txt를 끝까지 다 읽었는데, 이제 더이상 입력된 값을 포함하는 종목이 없는 경우
