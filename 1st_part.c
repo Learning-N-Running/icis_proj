@@ -7,8 +7,8 @@ ex) KOSPI 지수가 전날에 비해 상승했다면 몇 % 상승했는지 보여주고 오늘의 장 분위�
 
 int first_part(void)
 {
-    //변수 선언부
     char go_to_menu = 0; // menu로 돌아갈 것인지 확인하는 변수
+
 
     printf("\n코스피, 코스닥 지수를 업데이트하는 중입니다. \n시간이 조금 걸릴 수 있습니다.\n");
 
@@ -47,16 +47,16 @@ int first_part(void)
         for (int i = 0;i < 2;i++) //코스피200의 변화, 코스닥의 변화 출력
         {
             wchar_t str[64];
-            fgetws(str, 63, p_file);
-            wprintf(L"%s", str);
+            fgetws(str, 63, p_file); 
+            wprintf(L"%s", str); 
         }
 
         printf("\n");
 
         //오늘의 장 분위기 출력
-        wchar_t str[64];
-        fgetws(str, 63, p_file);
-        wprintf(L"%s", str);
+        wchar_t str[64]; 
+        fgetws(str, 63, p_file); 
+        wprintf(L"%s", str); 
 
         fclose(p_file); //열린 파일을 닫는다.
     }
@@ -64,11 +64,14 @@ int first_part(void)
 
     /**메뉴로 돌아가기**/
     getchar();
-    printf("\nEnter를 누르시면 메뉴로 돌아갑니다.");
+    printf("\nEnter를 누르시면 메뉴로 돌아갑니다.\n그외의 값을 누르면 종료됩니다.\n");
     scanf("%c", &go_to_menu);
-    if (go_to_menu == '\n') //Enter를 누르면
+    if (go_to_menu == '\n') { //Enter를 누르면
         printf("메뉴로 돌아갑니다.\n\n\n");
-    func_main(); //메뉴로 돌아가는 함수 실행
+        func_main(); //메뉴로 돌아가는 함수 실행
+    }
+    else
+        printf("이용해 주셔서 감사합니다.\n안녕히계세요");
     return 0;
 }
 
@@ -80,7 +83,6 @@ char* timeToString(struct tm* t)
 
     if (t->tm_wday == 1) // 오늘이 월요일이면
     {
-        textcolor(11);
         printf("오늘은 월요일입니다.\n");
         if (((t->tm_hour >= 15) && (t->tm_min >= 30)) || (t->tm_hour > 15))
         {
@@ -90,11 +92,9 @@ char* timeToString(struct tm* t)
         {
             printf("지금은 오전 9시 이전이므로 저번 주 금요일의 마감값을 기준으로 계산됩니다.");
         }
-        textcolor(15);
     }
     else if (t->tm_wday == 2) // 오늘이 화요일이면
     {
-        textcolor(11);
         printf("오늘은 화요일입니다.\n");
         if (((t->tm_hour >= 15) && (t->tm_min >= 30)) || (t->tm_hour > 15))
         {
@@ -104,11 +104,9 @@ char* timeToString(struct tm* t)
         {
             printf("지금은 오전 9시 이전이므로 어제의 마감값을 기준으로 계산됩니다.");
         }
-        textcolor(15);
     }
     else if (t->tm_wday == 3) // 오늘이 수요일이면
     {
-        textcolor(11);
         printf("오늘은 수요일입니다.\n");
         if (((t->tm_hour >= 15) && (t->tm_min >= 30)) || (t->tm_hour > 15))
         {
@@ -118,11 +116,9 @@ char* timeToString(struct tm* t)
         {
             printf("지금은 오전 9시 이전이므로 어제의 마감값을 기준으로 계산됩니다.");
         }
-        textcolor(15);
     }
     else if (t->tm_wday == 4) // 오늘이 목요일이면
     {
-        textcolor(11);
         printf("오늘은 목요일입니다.\n");
         if (((t->tm_hour >= 15) && (t->tm_min >= 30)) || (t->tm_hour > 15))
         {
@@ -132,11 +128,9 @@ char* timeToString(struct tm* t)
         {
             printf("지금은 오전 9시 이전이므로 어제의 마감값을 기준으로 계산됩니다.");
         }
-        textcolor(15);
     }
     else if (t->tm_wday == 5) // 오늘이 금요일이면
     {
-        textcolor(11);
         printf("오늘은 금요일입니다.\n");
         if (((t->tm_hour >= 15) && (t->tm_min >= 30)) || (t->tm_hour > 15))
         {
@@ -146,21 +140,16 @@ char* timeToString(struct tm* t)
         {
             printf("지금은 오전 9시 이전이므로 어제의 마감값을 기준으로 계산됩니다.");
         }
-        textcolor(15);
     }
     else if (t->tm_wday == 6) // 오늘이 토요일이면
     {
-        textcolor(11);
         printf("오늘은 토요일입니다.\n오늘은 주식 시장이 안 열리는 날이므로 가장 최근인 금요일 마감값을 기준으로 계산됩니다.");
-        textcolor(15);
     }
     else if (t->tm_wday == 0) // 오늘이 일요일이면
     {
-
-        textcolor(11);
         printf("오늘은 일요일입니다.\n오늘은 주식 시장이 안 열리는 날이므로 가장 최근인 금요일 마감값을 기준으로 계산됩니다.");
-        textcolor(15);
     }
     return s;
 }
+
 

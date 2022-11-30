@@ -84,10 +84,13 @@ int fourth_part(void)
 
     /**메뉴로 돌아가기**/
     getchar();
-    printf("\nEnter를 누르시면 메뉴로 돌아갑니다.");
+    printf("\nEnter를 누르시면 메뉴로 돌아갑니다.\n그외의 값을 누르면 종료됩니다.\n");
     scanf("%c", &go_to_menu);
-    if (go_to_menu == '\n') //enter가 아닌 다른 문자로 해야할것 같음
+    if (go_to_menu == '\n') { //Enter를 누르면
         printf("메뉴로 돌아갑니다.\n\n\n");
-    func_main();
+        func_main(); //메뉴로 돌아가는 함수 실행
+    }
+    else
+        printf("이용해 주셔서 감사합니다.\n안녕히계세요");
     return 0;
 }
