@@ -24,13 +24,10 @@ int second_part()
 
 	/**메뉴로 돌아가기**/
 	getchar();
-	printf("\nEnter를 누르시면 메뉴로 돌아갑니다.\n그외의 값을 누르면 종료됩니다.\n");
+	printf("\nEnter를 누르시면 메뉴로 돌아갑니다.");
 	scanf("%c", &go_to_menu);
-	if (go_to_menu == '\n') { //Enter를 누르면
+	if (go_to_menu == '\n')
 		printf("메뉴로 돌아갑니다.\n\n\n");
-		func_main(); //메뉴로 돌아가는 함수 실행
-	}
-	else
-		printf("이용해 주셔서 감사합니다.\n안녕히계세요");
+	func_main();
 	return 0;
 }
