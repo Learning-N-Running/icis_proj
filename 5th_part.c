@@ -368,7 +368,6 @@ int fifth_part(void)
 
 
     /**메뉴로 돌아가기**/
-    getchar();
     printf("\nEnter를 누르시면 메뉴로 돌아갑니다.\n그외의 값을 누르면 종료됩니다.\n");
     scanf("%c", &go_to_menu);
     if (go_to_menu == '\n') { //Enter를 누르면
