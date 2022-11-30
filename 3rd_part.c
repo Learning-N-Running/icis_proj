@@ -230,9 +230,11 @@ int third_part()
     printf("______________________________\n\n");
 
     /**메뉴로 돌아가기**/
+    textcolor(15);
     printf("\nEnter를 누르시면 메뉴로 돌아갑니다.\n그외의 값을 누르면 종료됩니다.\n");
     scanf("%c", &go_to_menu);
     if (go_to_menu == '\n') { //Enter를 누르면
+        textcolor(15);
         printf("메뉴로 돌아갑니다.\n\n\n");
         func_main(); //메뉴로 돌아가는 함수 실행
     }
