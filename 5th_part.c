@@ -54,9 +54,12 @@ int fifth_part(void)
             score1 = 2;
         }
 
-        else if (number1 == 4)
+        else if (number1 == 5)
         {
             score1 = 1;
+        }
+        else {
+            printf("1~5사이의 값을 입력해 주세요.\n"); //else 문을 이용해 1~5의 값을 입력받지 않았을 경우 다시 입력하라는 메시지 출력
         }
 
     } while (number1 < 1 | number1>5); //원하는 값(1~5)을 입력받을 때까지 반복하기 위한 do while문
